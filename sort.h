@@ -45,7 +45,10 @@ void cocktail_sort_list(listint_t **list);
 /* 102-counting_sort */
 void counting_sort(int *array, size_t size);
 
-/* 3-merge_sort */
+/* 103-merge_sort */
 void merge_sort(int *array, size_t size);
+
+/*104-heap_sort */
+void heap_sort(int *array, size_t size);
 
 #endif /* SORT_H */
