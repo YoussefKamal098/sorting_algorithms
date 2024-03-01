@@ -25,48 +25,6 @@ void swap(int *a, int *b)
 }
 
 /**
- * swap_with_pre_node - Swaps a node with its previous node
- * in a doubly linked list.
- *
- * @list: Pointer to a pointer to the head of the linked list.
- * @node: Pointer to the node to be swapped.
- *
- * Description:
- * This function swaps the given node with its previous node in a
- * doubly linked list. It updates the pointers accordingly to maintain
- * the integrity of the linked list.
- *
- * Note:
- * - The input pointers `list` and `node` must be valid.
- * - The linked list must be doubly linked.
- * - The given node must be part of the linked list.
- *
- */
-void swap_with_pre_node(listint_t **list, listint_t *node)
-{
-	listint_t *pre_node;
-
-	if (!list || !*list || !node || !node->prev)
-		return;
-
-	pre_node = node->prev;
-
-	pre_node->next = node->next;
-	node->prev = pre_node->prev;
-
-	if (node->next)
-		node->next->prev = pre_node;
-
-	if (pre_node->prev)
-		pre_node->prev->next = node;
-	else
-		*list = node;
-
-	pre_node->prev = node;
-	node->next = pre_node;
-}
-
-/**
  * swap_with_next_node - Swaps a node with its next node
  * in a doubly linked list.
  *
