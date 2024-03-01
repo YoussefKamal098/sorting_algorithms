@@ -1,8 +1,9 @@
 #include "sort.h"
 
-listint_t *get_end_node(listint_t *list);
 int swap_right(listint_t **list, listint_t **start, listint_t **end);
 int swap_left(listint_t **list, listint_t **start, listint_t **end);
+void swap_with_next_node(listint_t **list, listint_t *node);
+void swap_with_pre_node(listint_t **list, listint_t *node);
 
 /**
  * cocktail_sort_list - Sorts a doubly linked list of integers
@@ -28,40 +29,16 @@ void cocktail_sort_list(listint_t **list)
 		return;
 
 	start = *list;
-	end = get_end_node(*list);
+	end = *list;
+
+	while (end->next)
+		end = end->next;
 
 	while (swapped)
 	{
 		swapped = swap_right(list, &start, &end);
 		swapped = swap_left(list, &start, &end);
 	}
-}
-
-/**
- * get_end_node - Gets the end node of a doubly linked list.
- *
- * @list: Pointer to the head of the linked list.
- *
- * Description:
- * This function traverses the doubly linked list to find
- * and return the last node.
- *
- * Note:
- * - The input pointer `list` must point to a valid doubly linked list.
- *
- * Return: Pointer to the end node of the list.
- */
-listint_t *get_end_node(listint_t *list)
-{
-	listint_t *end = list;
-
-	if (!list)
-		return (NULL);
-
-	while (end->next)
-		end = end->next;
-
-	return (end);
 }
 
 /**
@@ -158,4 +135,87 @@ int swap_left(listint_t **list, listint_t **start, listint_t **end)
 		*start = (*start)->next;
 
 	return (swapped);
+}
+
+/**
+ * swap_with_next_node - Swaps a node with its next node
+ * in a doubly linked list.
+ *
+ * @list: Pointer to a pointer to the head of the linked list.
+ * @node: Pointer to the node to be swapped.
+ *
+ * Description:
+ * This function swaps the given node with its next node in
+ * a doubly linked list. It updates the pointers accordingly to
+ * maintain the integrity of the linked list.
+ *
+ * Note:
+ * - The input pointers `list` and `node` must be valid.
+ * - The linked list must be doubly linked.
+ * - The given node and its next node must be part of the linked list.
+ */
+void swap_with_next_node(listint_t **list, listint_t *node)
+{
+	listint_t *next_node;
+
+	if (!list || !*list || !node || !node->next)
+		return;
+
+	next_node = node->next;
+
+	node->next = next_node->next;
+	next_node->prev = node->prev;
+
+	if (node->prev)
+		node->prev->next = next_node;
+	else
+		*list = next_node;
+
+	if (next_node->next)
+		next_node->next->prev = node;
+
+	node->prev = next_node;
+	next_node->next = node;
+}
+
+/**
+ * swap_with_pre_node - Swaps a node with its previous node
+ * in a doubly linked list.
+ *
+ * @list: Pointer to a pointer to the head of the linked list.
+ * @node: Pointer to the node to be swapped.
+ *
+ * Description:
+ * This function swaps the given node with its previous node in a
+ * doubly linked list. It updates the pointers accordingly to maintain
+ * the integrity of the linked list.
+ *
+ * Note:
+ * - The input pointers `list` and `node` must be valid.
+ * - The linked list must be doubly linked.
+ * - The given node must be part of the linked list.
+ *
+ */
+void swap_with_pre_node(listint_t **list, listint_t *node)
+{
+	listint_t *pre_node;
+
+	if (!list || !*list || !node || !node->prev)
+		return;
+
+	pre_node = node->prev;
+
+	pre_node->next = node->next;
+	node->prev = pre_node->prev;
+
+	if (node->next)
+		node->next->prev = pre_node;
+
+	if (pre_node->prev)
+		pre_node->prev->next = node;
+	else
+		*list = node;
+
+	pre_node->prev = node;
+	node->next = pre_node;
 }
