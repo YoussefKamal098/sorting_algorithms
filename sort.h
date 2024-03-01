@@ -25,7 +25,6 @@ void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 
 /* swap.c */
-void swap(int *a, int *b);
 void swap_with_pre_node(listint_t **list, listint_t *node);
 void swap_with_next_node(listint_t **list, listint_t *node);
 

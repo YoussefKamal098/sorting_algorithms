@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * _swap - Swaps the values of two integers.
+ * swap - Swaps the values of two integers.
  *
  * @a: Pointer to the first integer.
  * @b: Pointer to the second integer.
@@ -12,7 +12,7 @@
  * Note:
  * - The input pointers `a` and `b` must be valid pointers to integers.
  */
-void _swap(int *a, int *b)
+void swap(int *a, int *b)
 {
 	int tmp;
 
@@ -65,7 +65,7 @@ void bubble_sort(int *array, size_t size)
 		{
 			if (array[j] > array[j + 1])
 			{
-				_swap(&array[j], &array[j + 1]);
+				swap(&array[j], &array[j + 1]);
 				print_array(array, size);
 				swapped = 1;
 			}

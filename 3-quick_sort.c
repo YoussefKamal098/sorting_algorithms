@@ -2,6 +2,7 @@
 
 void _quick_sort(int *array, size_t left, size_t right, size_t size);
 size_t Lomuto_partition(int *array, size_t left, size_t right, size_t size);
+void swap(int *a, int *b);
 
 /**
  * quick_sort - Sorts an array of integers in ascending order using
@@ -105,4 +106,28 @@ size_t Lomuto_partition(int *array, size_t left, size_t right, size_t size)
 	}
 
 	return (high);
+}
+
+/**
+ * swap - Swaps the values of two integers.
+ *
+ * @a: Pointer to the first integer.
+ * @b: Pointer to the second integer.
+ *
+ * Description:
+ * This function swaps the values of the integers pointed to by `a` and `b`.
+ *
+ * Note:
+ * - The input pointers `a` and `b` must be valid pointers to integers.
+ */
+void swap(int *a, int *b)
+{
+	int tmp;
+
+	if (!a || !b)
+		return;
+	tmp = *a;
+
+	*a = *b;
+	*b = tmp;
 }
