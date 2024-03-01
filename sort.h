@@ -24,9 +24,6 @@ void print_array(const int *array, size_t size);
 /* print_list.c */
 void print_list(const listint_t *list);
 
-/* memset.c */
-char *_memset(char *array, char byte, size_t size);
-
 /* 0-bubble_sort.c */
 void bubble_sort(int *array, size_t size);
 
