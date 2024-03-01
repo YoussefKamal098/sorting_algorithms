@@ -1,6 +1,7 @@
 #include "sort.h"
 
 size_t get_max_gap(size_t size);
+void swap(int *a, int *b);
 
 /**
  * shell_sort - Sorts an array of integers in ascending order using
@@ -64,4 +65,28 @@ size_t get_max_gap(size_t size)
 	}
 
 	return ((gap - 1) / 3);
+}
+
+/**
+ * swap - Swaps the values of two integers.
+ *
+ * @a: Pointer to the first integer.
+ * @b: Pointer to the second integer.
+ *
+ * Description:
+ * This function swaps the values of the integers pointed to by `a` and `b`.
+ *
+ * Note:
+ * - The input pointers `a` and `b` must be valid pointers to integers.
+ */
+void swap(int *a, int *b)
+{
+	int tmp;
+
+	if (!a || !b)
+		return;
+	tmp = *a;
+
+	*a = *b;
+	*b = tmp;
 }
