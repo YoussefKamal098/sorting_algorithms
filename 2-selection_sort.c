@@ -18,10 +18,6 @@ void swap(int *a, int *b);
  *
  * Note:
  * - The input array must be a valid array of integers.
- *
- * Example:
- * Given an array: 4, 2, 7, 1, 9, 3, 5
- * After applying selection_sort, the array becomes: 1, 2, 3, 4, 5, 7, 9
  */
 void selection_sort(int *array, size_t size)
 {

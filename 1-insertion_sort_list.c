@@ -20,11 +20,6 @@ void swap_with_pre_node(listint_t **list, listint_t *node);
  *
  * Note:
  * - The input list must be a valid doubly linked list of integers.
- *
- * Example:
- * Given a doubly linked list: 4 <-> 2 <-> 7 <-> 1 <-> 9 <-> 3 <-> 5
- * After applying insertion_sort_list, the list becomes:
- * 1 <-> 2 <-> 3 <-> 4 <-> 5 <-> 7 <-> 9
  */
 void insertion_sort_list(listint_t **list)
 {

@@ -44,10 +44,6 @@ void swap(int *a, int *b)
  * - The input array must be a valid array of integers.
  * - The size of the array must be greater than or equal to 2 for
  * the sorting to take place.
- *
- * Example:
- * Given an array: {4, 2, 7, 1, 9, 3, 5}
- * After applying bubble_sort, the array becomes: {1, 2, 3, 4, 5, 7, 9}
  */
 
 void bubble_sort(int *array, size_t size)
