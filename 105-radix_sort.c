@@ -25,7 +25,7 @@ void radix_sort(int *array, size_t size)
 
 	max = get_max(array, size);
 
-	for (exp = 1; max / exp < 0; exp *= 10)
+	for (exp = 1; max / exp > 0; exp *= 10)
 	{
 		counting_digit_sort(array, exp, buffer, size);
 		print_array(array, size);
