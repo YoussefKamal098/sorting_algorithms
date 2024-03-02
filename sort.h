@@ -48,7 +48,10 @@ void counting_sort(int *array, size_t size);
 /* 103-merge_sort */
 void merge_sort(int *array, size_t size);
 
-/*104-heap_sort */
+/* 104-heap_sort */
 void heap_sort(int *array, size_t size);
+
+/* 105-radix_sort.c */
+void radix_sort(int *array, size_t size);
 
 #endif /* SORT_H */
