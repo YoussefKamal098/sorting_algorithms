@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define UP 1
+#define DOWN 0
+
 /**
  * struct listint_s - Doubly linked list node
  *
@@ -53,5 +56,11 @@ void heap_sort(int *array, size_t size);
 
 /* 105-radix_sort.c */
 void radix_sort(int *array, size_t size);
+
+/* 106-bitonic_sort.c */
+void bitonic_sort(int *array, size_t size);
+
+/* 107-quick_sort_hoare */
+void quick_sort_hoare(int *array, size_t size);
 
 #endif /* SORT_H */
