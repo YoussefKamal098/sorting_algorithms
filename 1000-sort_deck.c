@@ -1,10 +1,4 @@
-#include <stdio.h>
 #include "deck.h"
-
-int compare_cards_kind(const void *a, const void *b);
-int compare_cards_value(const void *a, const void *b);
-int _strcmp(const char *str1, const char *str2);
-long int _atoi(const char *str);
 
 /**
  * sort_deck - Sorts a deck of cards in ascending order by suit and value.
@@ -52,7 +46,6 @@ void sort_deck(deck_node_t **deck)
 	card_array[i] = NULL;
 
 	qsort(card_array, list_size, sizeof(*card_array), compare_cards_kind);
-
 	for (card_sub_array = card_array; *card_sub_array; card_sub_array += 13)
 		qsort(card_sub_array, 13, sizeof(*card_sub_array), compare_cards_value);
 
@@ -118,7 +111,7 @@ int compare_cards_kind(const void *a, const void *b)
  * Note: This function uses static arrays for card names and
  * values for efficiency. It also handles cases where
  * the card value is not one of the predefined names
- * ("Ace", "Jack", "King", "Queen").
+ * ("Ace", "Jack", "Queen", "King").
  * This function assumes the `deck.h` header file is included, which defines
  * the `deck_node_t` structure
  * and the `card_t` structure containing the `value` member for the card value.

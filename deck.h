@@ -53,4 +53,9 @@ typedef struct deck_node_s
 /* 1000-sort_deck */
 void sort_deck(deck_node_t **deck);
 
+int compare_cards_kind(const void *a, const void *b);
+int compare_cards_value(const void *a, const void *b);
+int _strcmp(const char *str1, const char *str2);
+long int _atoi(const char *str);
+
 #endif /* DECK_H */
