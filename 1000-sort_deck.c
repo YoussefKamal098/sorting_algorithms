@@ -128,7 +128,7 @@ int compare_cards_value(const void *a, const void *b)
 	const deck_node_t *node1 = *(const deck_node_t **)a;
 	const deck_node_t *node2 = *(const deck_node_t **)b;
 
-	static char *cards[] = {"Ace", "Jack", "King", "Queen", NULL};
+	static char *cards[] = {"Ace", "Jack", "Queen", "King", NULL};
 	static int values[] = {0, 11, 12, 13};
 	int i = 0, node1_compare_value = -1, node2_compare_value = -1;
 
